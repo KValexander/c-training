@@ -40,7 +40,7 @@ int main () {
     
     printf("%d", result);
 
-    result == 0 ? printf("\nfalse") : printf("\ntrue");;
+    result == 0 ? printf("\nfalse") : printf("\ntrue");
 
     return 0;
 }
