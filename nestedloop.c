@@ -11,7 +11,6 @@ int main() {
 
     printf("\nEnter columns: ");
     scanf("%d", &columns);
-    // Почему 10?
 
     scanf("%c");
 
@@ -22,7 +21,7 @@ int main() {
     printf("%d, %d, %c", rows, columns, symbol);
 
     for(int i = 1; i <= rows; i++) {
-        printf("\n%d.", i);
+        printf("\n%d. ", i);
         for(int j = 1; j <= columns; j++)
         {
             printf("%c", symbol);
