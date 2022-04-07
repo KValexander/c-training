@@ -36,9 +36,7 @@ int main() {
     // Размер переменной
     printf("Size if age: %d bytes\n", sizeof(age));
     // Размер указателя
-    printf("Size if pAge: %d bytes\n", sizeof(pAge)); // ???
-    // У меня при компиляции одинаковые значения
-    // Хотя там, где я смотрел, у указателя было 8 байт
+    printf("Size if pAge: %d bytes\n", sizeof(pAge));
 
     // Значение переменной
     printf("Value of age: %d\n", age);

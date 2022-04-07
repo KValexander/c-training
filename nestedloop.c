@@ -17,7 +17,8 @@ int main() {
     printf("\nEnter char: ");
     scanf("%c", &symbol);
 
-    // Почему 10?
+    // На версии gcc 6.1 для columns выдавало 10
+    // На версии gcc 11.2 всё корректно работает
     printf("%d, %d, %c", rows, columns, symbol);
 
     for(int i = 1; i <= rows; i++) {
