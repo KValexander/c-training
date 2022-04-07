@@ -1,7 +1,8 @@
 #include <stdio.h>
 
-// Прототип функции объявляет позволяет создавать
+// Прототип функции позволяет создавать
 // функции ниже её непосредственного вызова
+// Примерно
 
 // Прототип функции
 void hello(char[], int);
@@ -18,6 +19,6 @@ int main() {
 
 // Сама функция
 void hello(char name[], int age) {
-    printf("\nHello %s", name);
-    printf("\nYou are %d years old\n", age);
+    printf("Hello %s\n", name);
+    printf("You are %d years old\n", age);
 }
