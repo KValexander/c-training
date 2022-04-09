@@ -5,5 +5,10 @@
 ## Warning
 CMakeLists is written for Windows only
 
+## Folder SDL2 contains
+- SDL2-2.0.20
+- SDL2_image-2.0.5
+- SDL2_mixer-2.0.4
+
 ## Quic start
-Download [SDL2 MinGW Development Libraries](https://www.libsdl.org/release/SDL2-devel-2.0.20-mingw.tar.gz), unzip to `SDL2-2.0.20` and rename to `SDL2`. Place in project folder, then run `build.bat`
+Run `build.bat`

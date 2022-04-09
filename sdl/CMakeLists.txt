@@ -4,8 +4,9 @@ cmake_minimum_required(VERSION 3.23.0)
 # Название проекта
 project(main)
 
-# Этот CMakeLists написан на основе
+# Этот CMakeLists написан на основе:
 # https://github.com/tsoding/nothing/blob/master/CMakeLists.txt
+# https://github.com/bradharding/doomretro/blob/master/CMakeLists.txt
 
 # Только для WINDOWS
 
@@ -18,6 +19,10 @@ if(MINGW)
     add_compile_definitions(__USE_MINGW_ANSI_STDIO)
 endif()
 
+# В моей папке SDL2 помимо SDL2 так же находятся:
+# SDL2_image
+# SDL2_mixer
+
 # Определение разрядности системы
 # для подключения SDL2
 if(${CMAKE_SIZEOF_VOID_P} MATCHES 8)
@@ -28,18 +33,26 @@ endif()
 
 # Пути подключения SDL2
 set(SDL2_INCLUDE_DIRS "${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/include/SDL2")
-set(SDL2_LIBRARIES "${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/lib/libSDL2.a;${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/lib/libSDL2main.a")
+set(SDL2_LIBRARIES "${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/lib/libSDL2.a;${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/lib/libSDL2main.a;${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/lib/libSDL2_image.a;${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/lib/libSDL2_mixer.a")
 
-# Подключение папки SDL2
-include_directories(${SDL2_INCLUDE_DIRS})
+# Подключение папки src, SDL2
+include_directories(
+    ${CMAKE_SOURCE_DIR}/src
+    ${SDL2_INCLUDE_DIRS}
+)
 
 # Исполняемые файлы
 add_executable(main
-    main.c
+    src/main.c
 )
 
 # Подключение библиотеки SDL2
-target_link_libraries(main ${SDL2_LIBRARIES})
+target_link_libraries(main
+    ${SDL2_LIBRARIES}
+)
+
+# Перенос ресурсов
+ADD_CUSTOM_TARGET(link_assets ALL COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/assets)
 
 # Без этого не работает и я не знаю почему x2
 if(MINGW)
