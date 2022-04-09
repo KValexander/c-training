@@ -28,7 +28,7 @@ endif()
 
 # Пути подключения SDL2
 set(SDL2_INCLUDE_DIRS "${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/include/SDL2")
-set(SDL2_LIBRARIES "${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/lib/libSDL2.a;${CMAKE_SOURCE_DIR}/SDL2/x86_64-w64-mingw32/lib/libSDL2main.a")
+set(SDL2_LIBRARIES "${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/lib/libSDL2.a;${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/lib/libSDL2main.a")
 
 # Подключение папки SDL2
 include_directories(${SDL2_INCLUDE_DIRS})
