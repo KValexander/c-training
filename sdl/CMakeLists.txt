@@ -22,18 +22,19 @@ endif()
 # В моей папке SDL2 помимо SDL2 так же находятся:
 # SDL2_image
 # SDL2_mixer
+# SDL2_ttf
 
 # Определение разрядности системы
 # для подключения SDL2
 if(${CMAKE_SIZEOF_VOID_P} MATCHES 8)
-    set(SDL2_WIN "x86_64-w64-mingw32")
+    set(SDL2_PATH "${CMAKE_SOURCE_DIR}/SDL2/x86_64-w64-mingw32")
 else()
-    set(SDL2_WIN "i686-w64-mingw32")
+    set(SDL2_PATH "${CMAKE_SOURCE_DIR}/SDL2/i686-w64-mingw32")
 endif()
 
 # Пути подключения SDL2
-set(SDL2_INCLUDE_DIRS "${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/include/SDL2")
-set(SDL2_LIBRARIES "${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/lib/libSDL2.a;${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/lib/libSDL2main.a;${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/lib/libSDL2_image.a;${CMAKE_SOURCE_DIR}/SDL2/${SDL2_WIN}/lib/libSDL2_mixer.a")
+set(SDL2_INCLUDE_DIRS "${SDL2_PATH}/include/SDL2")
+set(SDL2_LIBRARIES "${SDL2_PATH}/lib/libSDL2.a;${SDL2_PATH}/lib/libSDL2main.a;${SDL2_PATH}/lib/libSDL2_image.a;${SDL2_PATH}/lib/libSDL2_mixer.a;${SDL2_PATH}/lib/libSDL2_ttf.a")
 
 # Подключение папки src, SDL2
 include_directories(
@@ -52,7 +53,7 @@ target_link_libraries(main
 )
 
 # Перенос ресурсов
-ADD_CUSTOM_TARGET(link_assets ALL COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/assets)
+# ADD_CUSTOM_TARGET(link_assets ALL COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/assets)
 
 # Без этого не работает и я не знаю почему x2
 if(MINGW)

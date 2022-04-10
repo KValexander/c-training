@@ -9,6 +9,7 @@ CMakeLists is written for Windows only
 - SDL2-2.0.20
 - SDL2_image-2.0.5
 - SDL2_mixer-2.0.4
+- SDL2_ttf-2.0.18
 
 ## Quic start
 Run `build.bat`

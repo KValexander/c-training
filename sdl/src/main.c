@@ -3,8 +3,12 @@
 #include <stdbool.h>
 // Подключение SDL
 #include <SDL.h>
+// Подключение SDL_image
 #include <SDL_image.h>
+// Подключение SDL_mixer
 #include <SDL_mixer.h>
+// Подключение SDL_ttf
+#include <SDL_ttf.h>
 
 int main(int argc, char ** argv) {
 
