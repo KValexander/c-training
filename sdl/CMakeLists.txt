@@ -50,6 +50,7 @@ add_executable(main
 # Подключение библиотеки SDL2
 target_link_libraries(main
     ${SDL2_LIBRARIES}
+    Rpcrt4.lib # для корректной работы SDL2_ttf
 )
 
 # Перенос ресурсов
